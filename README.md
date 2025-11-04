@@ -15,6 +15,10 @@
 - **Session Management:** View buffered output from backgrounded shells
 - **Color-Coded Output:** Easy-to-read colored terminal output for better visibility
 
+---
+
+## Download Pre-Build from Release - [OnlyShell](https://github.com/malwarekid/OnlyShell/releases)
+
 ## Installation
 
 ### Prerequisites
@@ -50,7 +54,7 @@ GOOS=darwin GOARCH=amd64 go build -o OnlyShell main.go
 
 ## How to Use
 
-![demo](https://github.com/user-attachments/assets/example-demo-image.png)
+<img width="863" height="660" alt="onlyshell" src="https://github.com/user-attachments/assets/aab2440e-6836-4174-b96b-b9d7b30d6e6f" />
 
 ### Starting the Handler
 
