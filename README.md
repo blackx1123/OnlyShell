@@ -26,9 +26,9 @@
 
 ### Build from Source
 1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/malwarekid/OnlyShell.git && cd OnlyShell
-   ```
+```bash
+git clone https://github.com/malwarekid/OnlyShell.git && cd OnlyShell
+```
 
 2. **Cross-Compiling**
 
@@ -178,3 +178,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Notes
 
 Feel free to contribute, report issues, or provide feedback. Don't forget to follow me on [Instagram](https://www.instagram.com/malwarekid/) and [GitHub](https://github.com/malwarekid). Happy Pentesting! 🔒
+
